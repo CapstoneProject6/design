@@ -1,0 +1,24 @@
+title realisation d'ordre
+
+
+loop pour tout les Produit à réaliser
+Ordre->Produit:listeServicesPossibles?
+Produit->Ordre:
+Ordre->Ordre: Selection du service voulu
+Ordre->Ressource:listeRessourcesCapableDe(ServiceChoisi)?
+Ressource->Ressource:RessourceCapable(Service)
+Ressource->Ressource:VerificationDisponibilitéRessource
+Ressource->Ordre:
+Ordre->Ordre: selectionRessource
+Ordre->Ressource:reservation(ressourceChoisie)
+alt necessite deplacement
+Ordre->Ressource:listeRessourcesCapableDe(deplacement)?
+Ressource->Ressource:RessourceCapable(deplacement)
+Ressource->Ressource:VerificationDisponibilitéRessource
+Ressource->Ordre:
+Ordre->Ordre: selectionRessource
+Ordre->Ressource:reservation(ressourceChoisie)
+end
+
+end
+

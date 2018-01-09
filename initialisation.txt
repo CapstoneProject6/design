@@ -1,0 +1,10 @@
+title Initialisation sequence
+
+IHM->init: demandeConnection
+Arena->init : demandeConnection
+IHM->init: envoieInitialisation(fichier.JSON)
+init->init : parsing fichier.JSON
+init->*Produit: initialisationProduit
+init->*Ressource: initialisationRessource
+init->*Ordre: initialisationOrdre
+init->Ordre: passage de main

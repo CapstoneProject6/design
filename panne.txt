@@ -1,0 +1,19 @@
+title panne d'une ressource
+
+init->*Ordre: initialisation
+init->*Ressource:initialisation
+Ressource->*"Ressource:R1":initialisation avec panne
+
+note over init,"Ressource:R1": fonctionnement normal
+
+alt pas de panne
+"Ressource:R1"->Arena:envoie instruction
+else panne
+"Ressource:R1"->Ressource: panne(R1,dureeReparation)
+Ressource->Ordre:panne(R1,dureeReparation)
+Ordre->Ordre: renegociation des instructions\n sur la plage horaire de la panne
+
+note over Ordre,"Ressource:R1": réaffectation des instructions invalidées
+end
+
+note over Ordre,"Ressource:R1": retour au fonctionement normal
